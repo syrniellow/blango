@@ -9,8 +9,10 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 
 import os
 
-from django.core.wsgi import get_wsgi_application
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blango.settings') # default
+os.environ.setdefault("DJANGO_CONFIGURATION", "Prod")              # configurations lib
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blango.settings')
+# from django.core.wsgi import get_wsgi_application  # default 
+from configurations.wsgi import get_wsgi_application # configurations lib
 
 application = get_wsgi_application()
