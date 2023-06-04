@@ -63,11 +63,16 @@ class Dev(Configuration):
         'crispy_forms',       # forms support library
         'crispy_bootstrap5',  # forms support library
         'debug_toolbar'      , # installed_apps
+        
+        # allauth apps 
         "allauth", 
         "allauth.account", 
         "allauth.socialaccount", 
         "allauth.socialaccount.providers.google",
+
+        # DRF 
         "rest_framework",
+        "rest_framework.authtoken" # tokens 
     ]
 
     MIDDLEWARE = [
@@ -221,6 +226,15 @@ class Dev(Configuration):
     ACCOUNT_EMAIL_REQUIRED = True
     ACCOUNT_USERNAME_REQUIRED = False
     ACCOUNT_AUTHENTICATION_METHOD = "email"
+
+  # API - tokens 
+    REST_FRAMEWORK = {
+        "DEFAULT_AUTHENTICATION_CLASSES": [
+            "rest_framework.authentication.BasicAuthentication",
+            "rest_framework.authentication.SessionAuthentication",
+            "rest_framework.authentication.TokenAuthentication",
+        ]
+    }
 
 class Prod(Dev):
     DEBUG = False
