@@ -63,7 +63,11 @@ class Dev(Configuration):
         'crispy_forms',       # forms support library
         'crispy_bootstrap5',  # forms support library
         'debug_toolbar'      , # installed_apps
-        "allauth", "allauth.account", "allauth.socialaccount", "allauth.socialaccount.providers.google",
+        "allauth", 
+        "allauth.account", 
+        "allauth.socialaccount", 
+        "allauth.socialaccount.providers.google",
+        "rest_framework",
     ]
 
     MIDDLEWARE = [
