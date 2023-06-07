@@ -72,7 +72,8 @@ class Dev(Configuration):
 
         # DRF 
         "rest_framework",
-        "rest_framework.authtoken" # tokens 
+        "rest_framework.authtoken", # tokens 
+        "drf_yasg" # swagger
     ]
 
     MIDDLEWARE = [
@@ -237,6 +238,14 @@ class Dev(Configuration):
         "DEFAULT_PERMISSION_CLASSES": [
             "rest_framework.permissions.IsAuthenticatedOrReadOnly"
         ],
+    }
+
+    # drf-yasg swagger settings
+    SWAGGER_SETTINGS = {
+        "SECURITY_DEFINITIONS": {
+            "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+            "Basic": {"type": "basic"},
+        }
     }
 
 class Prod(Dev):
