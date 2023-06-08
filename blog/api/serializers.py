@@ -55,3 +55,9 @@ class PostDetailSerializer(PostSerializer):
             comment.save()
 
         return instance
+
+# testing viewsets and routers
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = "__all__"
